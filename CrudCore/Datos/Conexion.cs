@@ -14,5 +14,12 @@ namespace CrudCore.Datos
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();  
         }
 
+
+        public string getCadenaSQL() { 
+        
+        return cadenaSQL;
+        }
+
+
     }
 }
