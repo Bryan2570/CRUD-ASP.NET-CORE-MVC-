@@ -10,7 +10,7 @@
         Listar Contacto
     </div>
     <div class="card-body">
-        <a asp-action="Guardar" asp-controller="Mantenedor" class="btn btn-success">Crear nuevo</a>
+        <a asp-action="Guardar" asp-controller="Mantenedor" class="btn btn-success"><i class="bi bi-plus-circle"></i> Crear nuevo</a>
         <hr />
         <table class="table table-bordered">
             <thead>
@@ -30,6 +30,7 @@
                         <td>@item.Correo</td>
                         <td>
                             <a asp-action="Editar" asp-controller="Mantenedor" class="btn btn-primary btn-sm" asp-route-IdContacto="@item.IdContacto">Editar</a>
+                            <a asp-action="Eliminar" asp-controller="Mantenedor" class="btn btn-danger btn-sm" asp-route-IdContacto="@item.IdContacto">Eliminar</a>
                         </td>
                     </tr>                
                 }

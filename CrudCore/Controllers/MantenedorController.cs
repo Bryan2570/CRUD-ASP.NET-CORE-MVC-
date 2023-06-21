@@ -59,5 +59,23 @@ namespace CrudCore.Controllers
                 return View();
         }
 
+        public IActionResult Eliminar(int IdContacto)
+        {
+            //metodo solo devuelve la vista
+            var oContacto = _ContactoDatos.Obtener(IdContacto);
+            return View(oContacto);
+        }
+
+        [HttpPost]
+        public IActionResult Eliminar(ContactoModel oContacto)
+        {
+
+            var rpta = _ContactoDatos.Eliminar(oContacto.IdContacto);
+
+            if (rpta)
+                return RedirectToAction("Listar");
+            else
+                return View();
+        }
     }
 }

@@ -147,9 +147,10 @@ namespace CrudCore.Datos
                 using (var conexion = new SqlConnection(cn.getCadenaSQL()))
                 {
                     conexion.Open();
-                    SqlCommand cmd = new SqlCommand("sp_Elimina", conexion);
+                    SqlCommand cmd = new SqlCommand("sp_Eliminar", conexion);
                     cmd.Parameters.AddWithValue("IdContacto", idContacto);
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
                 }
                 rpta = true;
             }
