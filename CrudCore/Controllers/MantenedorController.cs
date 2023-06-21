@@ -37,6 +37,27 @@ namespace CrudCore.Controllers
                 return View();
         }
 
-     
+        public IActionResult Editar(int IdContacto)
+        {
+            //metodo solo devuelve la vista
+            var oContacto = _ContactoDatos.Obtener(IdContacto);
+            return View(oContacto);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(ContactoModel oContacto)
+        {
+            //si algun campo esta vacio : false ; y si no : true ==>> validamos campos obligatorios
+            if (!ModelState.IsValid)
+                return View();
+
+            var rpta = _ContactoDatos.Editar(oContacto);
+
+            if (rpta)
+                return RedirectToAction("Listar");
+            else
+                return View();
+        }
+
     }
 }

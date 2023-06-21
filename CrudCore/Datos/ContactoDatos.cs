@@ -31,7 +31,7 @@ namespace CrudCore.Datos
                         oListar.Add(new ContactoModel
                         {
                             IdContacto = Convert.ToInt32(dr["IdContacto"]),
-                            Nombre = dr["IdContacto"].ToString(),
+                            Nombre = dr["Nombre"].ToString(),
                             Telefono = dr["Telefono"].ToString(),
                             Correo = dr["Correo"].ToString()
                         });
@@ -61,7 +61,7 @@ namespace CrudCore.Datos
                     while (dr.Read())
                     {
                         oContacto.IdContacto = Convert.ToInt32(dr["IdContacto"]);
-                        oContacto.Nombre = dr["IdContacto"].ToString();
+                        oContacto.Nombre = dr["Nombre"].ToString();
                         oContacto.Telefono = dr["Telefono"].ToString();
                         oContacto.Correo = dr["Correo"].ToString();
                     }
@@ -120,6 +120,7 @@ namespace CrudCore.Datos
                     cmd.Parameters.AddWithValue("Telefono", contacto.Telefono);
                     cmd.Parameters.AddWithValue("Correo", contacto.Correo);
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
                 }
                 rpta = true;
             }
