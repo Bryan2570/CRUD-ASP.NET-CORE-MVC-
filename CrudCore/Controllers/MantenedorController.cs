@@ -25,6 +25,10 @@ namespace CrudCore.Controllers
         //Recibe el objeto para guardarlo en la BD  
         public IActionResult Guardar(ContactoModel oContacto)
         {
+            //si algun campo esta vacio : false ; y si no : true ==>> validamos campos obligatorios
+            if (!ModelState.IsValid)
+                return View();
+
             var rpta = _ContactoDatos.Guardar(oContacto);
 
             if (rpta)
