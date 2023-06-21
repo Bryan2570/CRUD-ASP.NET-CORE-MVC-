@@ -87,6 +87,7 @@ namespace CrudCore.Datos
                     cmd.Parameters.AddWithValue("Telefono", contacto.Telefono);
                     cmd.Parameters.AddWithValue("Correo", contacto.Correo);
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
                 }
                 rpta = true;
             }

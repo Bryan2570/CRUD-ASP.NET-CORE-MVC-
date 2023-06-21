@@ -11,7 +11,8 @@ namespace CrudCore.Datos
         public Conexion()
         {
             //Obtenemos la cadena de conexion que esta en el archivo appsettings.json
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();  
+            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
+            cadenaSQL = builder.GetSection("ConnectionStrings:CadenaSQL").Value;
         }
 
 
